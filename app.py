@@ -419,7 +419,7 @@ custom_css = """
 st.markdown(custom_css, unsafe_allow_html=True)
 
 # Title and Styling
-st.title("VisuAILearn - A Visual Learning Platform")
+st.title("VizAIlearn - A Visual Learning Platform")
 st.write("Tired of sifting through endless pages of text? Worried about an upcoming test on several confusing concepts? \n\n Our AI-powered tool is here to make your life easier. It can convert long-winded textbook pages into concise summaries while adding a variety of digestible visualizations to convey key ideas. \n\nOnce you're feeling comfortable, try our Q&A feature to instantly generate applicable practice questions and master knowledge. \nSay goodbye to stressful studying and hello to smarter, faster learning of the future with Visu-AI-Learn")
 st.write('\nTo use this app, toggle the number of summaries with the sample text and watch the magic happen. \n Alternatively, enter your own text or upload a file. \nHappy Learning!')
 
