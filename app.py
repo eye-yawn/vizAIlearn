@@ -421,7 +421,7 @@ st.markdown(custom_css, unsafe_allow_html=True)
 # Title and Styling
 st.title("VizAIlearn - The Visual Learning Platform of the Future")
 st.write("Tired of sifting through endless pages of text? Worried about an upcoming test on several confusing concepts? \n\n This AI-powered tool is here to make your life easier. It can convert long-winded textbook pages into concise summaries while adding a variety of digestible visualizations to convey key ideas. \n\nOnce you're feeling comfortable, try the Q&A feature to instantly generate applicable practice questions and master knowledge. \nSay goodbye to stressful studying and hello to smarter, faster learning of the future with Viz-AI-learn")
-st.write('\nTo use this app, toggle the number of summaries with the sample text and watch the magic happen. \nAn example has already been filled in below, but you can enter your own text or upload a file once you're ready. \nHappy Learning!')
+st.write('\nTo use this app, toggle the number of summaries with the sample text and watch the magic happen. \nAn example has already been filled in below, but you can enter your own text or upload a file once you are ready. \nHappy Learning!')
 
 # Sidebar for feature selection
 option = st.sidebar.selectbox(
