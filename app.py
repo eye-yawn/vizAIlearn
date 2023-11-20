@@ -205,7 +205,7 @@ def chunk_text(text, max_chunk_size=512):
     return chunks
 
 ##########################################################
-# extracting topisc and entitites
+# extracting topics and entitites
 ##########################################################
 # Importing necessary libraries
 import spacy
