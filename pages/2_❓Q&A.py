@@ -10,7 +10,7 @@ import fitz
 from bs4 import BeautifulSoup
 
 from langchain.chains.question_answering import load_qa_chain
-from langchain import HuggingFaceHub
+from langchain.llms import HuggingFaceHub
 
 # title and intro
 st.set_page_config(page_title="Q&A", page_icon="❓")
