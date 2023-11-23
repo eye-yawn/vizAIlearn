@@ -41,7 +41,10 @@ class Document:
         self.metadata = metadata if metadata else {}
 
 @st.cache_resource
-nltk.download('punkt')
+def downloadpunkt():
+    nltk.download('punkt')
+
+downloadpunkt()
 
 def dashline():
   dashline = print('------------------')
