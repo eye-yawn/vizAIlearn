@@ -40,8 +40,9 @@ class Document:
         self.page_content = page_content
         self.metadata = metadata if metadata else {}
 
-
+@st.cache_resource
 nltk.download('punkt')
+
 def dashline():
   dashline = print('------------------')
   return dashline
