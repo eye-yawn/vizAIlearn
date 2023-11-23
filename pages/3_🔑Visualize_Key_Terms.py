@@ -144,6 +144,9 @@ def get_user_input():
                 return 'pdf', user_input_file, page_start, page_end, section
             else:
                 return 'text', user_input_file, None, None, None
+        else:
+            st.error("ERROR: Please upload a file first.",icon="⚠️")
+            return None, None, None, None, None
     elif source_option == 'Input URL':
         url = st.text_input('Enter the URL:')
         if url:
@@ -157,7 +160,9 @@ def get_user_input():
                     script.decompose()
                 text = " ".join(t.strip() for t in soup.stripped_strings)
                 return 'text', text, None, None, None
-                
+        else:
+            st.error("ERROR: Please enter a URL first.",icon="⚠️")
+            return None, None, None, None, None    
     return None, None, None, None, None
 
 # Get user input
