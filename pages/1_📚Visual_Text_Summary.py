@@ -14,7 +14,7 @@ st.write(
 )
 
 st.write('''\nBelow, an example has already been filled in. You can toggle the number of summaries 
-         and watch the magic happen, or you can enter your own text or upload a file to tryonce you're ready. 
+         and watch the magic happen, or you can enter your own text or upload a file to try once you're ready. 
         ''')
 
 ##########################################################
