@@ -130,6 +130,9 @@ elif input_type == 'pdf':
             extracted_text = " ".join(extracted_text)
     chunks = [extracted_text]
 
+else:
+    chunks = ''
+
 # Process each chunk based on the selected option and the inputs collected above
 for chunk in chunks:  
     question = st.text_area("Ask a question about your text or PDF:", value = "What is chitin?", height = 20)
