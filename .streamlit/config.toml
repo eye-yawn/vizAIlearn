@@ -4,3 +4,6 @@ backgroundColor="#0d6368"
 secondaryBackgroundColor="#098c94"
 textColor="#FFFFFF"
 font="serif"
+
+[client]
+showErrorDetails=false
