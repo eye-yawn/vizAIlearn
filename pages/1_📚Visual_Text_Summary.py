@@ -273,15 +273,17 @@ elif input_type == 'pdf':
             extracted_text = " ".join(extracted_text)
     chunks = [extracted_text]
 
+else:
+    chunks = ''
+
 # Process each chunk based on the selected option and the inputs collected above
-if chunks:    
-    for chunk in chunks:  
-        final_summary = summarize(chunk, num_sum, language)
-        # Display the final summary
-        st.write('Summaries:')
-        st.markdown("\n".join(f"- {item}" for item in final_summary))
-        #convert to hierarchial
-        topic = format_as_hierarchy(final_summary)
-        print(topic)
-        # Call the function to visualize the data
-        visualize_network(topic)
+for chunk in chunks:  
+    final_summary = summarize(chunk, num_sum, language)
+    # Display the final summary
+    st.write('Summaries:')
+    st.markdown("\n".join(f"- {item}" for item in final_summary))
+    #convert to hierarchial
+    topic = format_as_hierarchy(final_summary)
+    print(topic)
+    # Call the function to visualize the data
+    visualize_network(topic)
