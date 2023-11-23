@@ -182,6 +182,9 @@ elif input_type == 'pdf':
             extracted_text = extracted_text.split("\n")[page_start-1:page_end]
             extracted_text = " ".join(extracted_text)
     chunks = [extracted_text]
+    
+else:
+    chunks = ''
 
 # Process each chunk based on the selected option and the inputs collected above
 for chunk in chunks: 
