@@ -40,7 +40,7 @@ class Document:
         self.page_content = page_content
         self.metadata = metadata if metadata else {}
 
-@st.experimental_singleton
+@st.cache_resource
 def downloadpunkt():
     nltk.download('punkt')
 
