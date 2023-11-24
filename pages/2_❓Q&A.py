@@ -54,7 +54,7 @@ def createEmbeddings(chunked_docs):
     vector_store = FAISS.from_documents(chunked_docs, embedder)
     return vector_store
 
-@st.experimental_singleton
+@st.cache_resource
 def loadLLMModel(token):
     llm = HuggingFaceHub(repo_id="declare-lab/flan-alpaca-large", 
                      model_kwargs={"temperature":0, "max_length":512},
