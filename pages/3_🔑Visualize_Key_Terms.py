@@ -28,7 +28,11 @@ from spacy import displacy
 import matplotlib.pyplot as plt
 
 # Load spaCy's English model
-nlp = spacy.load("en_core_web_sm")
+@st.cache_resource
+def loadenglishmodel():
+    nlp = spacy.load("en_core_web_sm")
+
+loadenglishmodel()
 
 # Load spaCy's stopwords
 from spacy.lang.en.stop_words import STOP_WORDS
