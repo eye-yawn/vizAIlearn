@@ -31,8 +31,9 @@ import matplotlib.pyplot as plt
 @st.cache_resource
 def loadenglishmodel():
     nlp = spacy.load("en_core_web_sm")
+    return nlp
 
-loadenglishmodel()
+nlp = loadenglishmodel()
 
 # Load spaCy's stopwords
 from spacy.lang.en.stop_words import STOP_WORDS
