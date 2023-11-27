@@ -122,67 +122,23 @@ def ensemble_summary(num_summaries, *summaries):
 # Visualization
 ########################################
 
-def format_as_hierarchy(summaries):
-    """Formats the summarized bullet points in a hierarchical format."""
-    # Indent each bullet point to represent it as a leaf in the hierarchy
-    # sentences = re.split(r'(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s', summaries)
-    hierarchy = {
-      'name': 'summary',
-      'children': [{'name': sentence} for sentence in summaries if sentence]
-    }
-    return hierarchy
+from streamlit_d3graph import d3graph
+import pandas as pd
+from d3blocks import D3Blocks
+import streamlit.components.v1 as components
 
-import streamlit as st
-import plotly.graph_objects as go
-import textwrap
-
-def visualize_network(data):
-    fig = go.Figure()
-
-    def add_node(node, x, y):
-        wrapped_text = textwrap.fill(node['name'], width=30)
-        fig.add_trace(go.Scatter(
-            x=[x],
-            y=[y],
-            text=[wrapped_text],
-            mode='markers+text',
-            textposition="middle right",  # Adjust this for text positioning
-            hoverinfo='text',
-            textfont=dict(size=12, color="yellow"),
-            marker=dict(symbol="circle", size=10, color='blue', line=dict(width=2.5, color='green'))
-        ))
-
-        if 'children' in node:
-            num_children = len(node['children'])
-            y_offset = 1.2
-            start_y = y - ((num_children - 1) * y_offset) / 2
-            for i, child in enumerate(node['children']):
-                child_x = x + 0.25
-                child_y = start_y + i * y_offset
-                add_node(child, child_x, child_y)
-                fig.add_trace(go.Scatter(
-                    x=[x, child_x],
-                    y=[y, child_y],
-                    mode='lines',
-                    line=dict(width=2, color='blue'),
-                    hoverinfo='none'
-                ))
-
-    add_node(data, 0, 0)
-
-    fig.update_layout(
-        title='Visual Summaries',
-        showlegend=False,
-        hovermode='closest',
-        margin=dict(b=20, l=20, r=20, t=40),
-        xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
-        yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
-        plot_bgcolor='black',
-        width=900,
-        height=600
-    )
-
-    st.plotly_chart(fig)
+def d3_visualize(summary):
+    d3 = d3graph()
+    df = pd.DataFrame({
+        'source':['Summaries']*len(summary),
+        'target': summary,
+        'weight': 5
+    })
+    d3 = D3Blocks(chart='tree')
+    d3.set_node_properties(df)
+    d3.set_edge_properties(df)
+    d3html = d3.show(filepath=None)
+    components.html(d3html, height=800,width=600)
 
 # Summarization functions in one
 
