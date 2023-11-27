@@ -33,8 +33,6 @@ from sumy.utils import get_stop_words
 from collections import defaultdict
 from rouge import Rouge
 
-import plotly.graph_objects as go
-
 class Document:
     def __init__(self, page_content, metadata=None):
         self.page_content = page_content
