@@ -242,8 +242,6 @@ for chunk in chunks:
     # Display the final summary
     st.write('Summaries:')
     st.markdown("\n".join(f"- {item}" for item in final_summary))
-    #convert to hierarchial
-    topic = format_as_hierarchy(final_summary)
-    print(topic)
-    # Call the function to visualize the data
-    visualize_network(topic)
+    st.subheader('Tree diagram of the summaries')
+    st.caption('Hover over a node or pan to the right to read the full sentence.')
+    d3_visualize(final_summary)
