@@ -127,12 +127,12 @@ import pandas as pd
 from d3blocks import D3Blocks
 import streamlit.components.v1 as components
 
+@st.cache_data
 def d3_visualize(summary):
-    d3 = d3graph()
     df = pd.DataFrame({
         'source':['Summaries']*len(summary),
         'target': summary,
-        'weight': 5
+        'weight': 1
     })
     d3 = D3Blocks(chart='tree')
     d3.set_node_properties(df)
