@@ -180,37 +180,39 @@ def get_user_input():
         user_input_text = st.text_area('Enter your text here:',default_text)
         return 'text', user_input_text, None, None, None
     elif source_option == 'Upload Text/PDF':
-        user_input_file = st.file_uploader('Upload your text or PDF')
-        if user_input_file:
-            if user_input_file.name.endswith('.pdf'):
-                page_start = st.number_input("Enter the starting page number:", min_value=1, step=1)
-                page_end = st.number_input("Enter the ending page number: \n Leave blank if starting and ending page numbers are the same.", min_value=page_start, step=1)
-                section = st.text_input("Enter the section (example: Introduction, Conclusion etc. Leave blank to retrieve all):")
-                return 'pdf', user_input_file, page_start, page_end, section
-            else:
-                return 'text', user_input_file, None, None, None
-        else:
-            st.error("ERROR: Please upload a file first.",icon="⚠️")
-            return None, None, None, None, None
+        st.write("This feature is currently being updated and will return this week.")
+        # user_input_file = st.file_uploader('Upload your text or PDF')
+        # if user_input_file:
+        #     if user_input_file.name.endswith('.pdf'):
+        #         page_start = st.number_input("Enter the starting page number:", min_value=1, max_value=3000, step=1)
+        #         page_end = st.number_input("Enter the ending page number (leave blank if starting and ending page numbers are the same):", min_value=page_start, max_value=3000, step=1)
+        #         section = st.text_input("Enter the section (example: Introduction, Conclusion etc. Leave blank to retrieve all):")
+        #         return 'pdf', user_input_file, page_start, page_end, section
+        #     else:
+        #         return 'text', user_input_file, None, None, None
+        # else:
+        #     st.error("ERROR: Please upload a file first.",icon="⚠️")
+        #     return None, None, None, None, None
     elif source_option == 'Input URL':
-        url = st.text_input('Enter the URL:')
-        if url:
-            response = requests.get(url)
-            if url.endswith('.pdf'):
-                return 'pdf', BytesIO(response.content), None, None, None
-            else:
-                soup = BeautifulSoup(response.content, 'html.parser')
-                # Extract text from the webpage
-                for script in soup(["script", "style"]):
-                    script.decompose()
-                text = " ".join(t.strip() for t in soup.stripped_strings)
-                return 'text', text, None, None, None
-        else:
-            st.error("ERROR: Please enter a URL first.",icon="⚠️")
-            return None, None, None, None, None    
+        st.write("This feature is currently being updated and will return this week.")
+        # url = st.text_input('Enter the URL:')
+        # if url:
+        #     response = requests.get(url)
+        #     if url.endswith('.pdf'):
+        #         return 'pdf', BytesIO(response.content), None, None, None
+        #     else:
+        #         soup = BeautifulSoup(response.content, 'html.parser')
+        #         # Extract text from the webpage
+        #         for script in soup(["script", "style"]):
+        #             script.decompose()
+        #         text = " ".join(t.strip() for t in soup.stripped_strings)
+        #         return 'text', text, None, None, None
+        # else:
+        #     st.error("ERROR: Please enter a URL first.",icon="⚠️")
+        #     return None, None, None, None, None    
     return None, None, None, None, None
 
-num_sum = st.number_input("Enter how many sentences you want to summarize the input into (ex. 5):", min_value=1, step=1)
+num_sum = st.number_input("Enter how many sentences you want to summarize the input into (ex. 5):", min_value=1, max_value=15, step=1)
 language = st.selectbox('Enter the language of the text you wish to generate the summary for:', ('en', 'fr', 'es', 'chi'))
 
 # Get user input
