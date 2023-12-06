@@ -140,7 +140,7 @@ def get_user_input():
         user_input_text = st.text_area('Enter your text here:',default_text)
         return 'text', user_input_text, None, None, None
     elif source_option == 'Upload Text/PDF':
-        st.write("This feature is currently being updated and will return this week.")
+        st.write("This feature is currently being updated and will return by 12/8.")
         # user_input_file = st.file_uploader('Upload your text or PDF')
         # if user_input_file:
         #     if user_input_file.name.endswith('.pdf'):
@@ -154,7 +154,7 @@ def get_user_input():
         #     st.error("ERROR: Please upload a file first.",icon="⚠️")
         #     return None, None, None, None, None
     elif source_option == 'Input URL':
-        st.write("This feature is currently being updated and will return this week.")
+        st.write("This feature is currently being updated and will return by 12/8.")
         # url = st.text_input('Enter the URL:')
         # if url:
         #     response = requests.get(url)
