@@ -3,6 +3,7 @@ lexrank
 rouge
 torch
 streamlit
+sentence_transformers 
 pymilvus
 PyPDF2
 networkx 
