@@ -56,8 +56,6 @@ def extract_topics_and_entities(text):
     topics = [chunk.text for chunk in doc.noun_chunks if chunk.text not in STOP_WORDS]
     return topics, entities, entity_labels
 
-import plotly.figure_factory as ff
-
 import plotly.graph_objects as go
 import networkx as nx
 
