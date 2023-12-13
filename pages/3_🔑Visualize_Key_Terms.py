@@ -25,7 +25,6 @@ st.write('''Some common named entities:
 ##########################################################
 import spacy
 from spacy import displacy
-import matplotlib.pyplot as plt
 
 # Load spaCy's English model
 @st.cache_resource
