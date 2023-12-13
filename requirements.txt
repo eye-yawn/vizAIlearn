@@ -7,14 +7,14 @@ sentence_transformers
 pymilvus
 PyPDF2
 networkx 
-matplotlib
+
 plotly
 d3blocks
 bs4
 langchain
 huggingface_hub
 faiss-cpu
-unstructured
+
 spacy>=3.0.0,<4.0.0
 https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.5.0/en_core_web_sm-3.5.0-py3-none-any.whl
 
