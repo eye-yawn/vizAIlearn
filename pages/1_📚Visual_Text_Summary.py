@@ -44,10 +44,6 @@ def downloadpunkt():
 
 downloadpunkt()
 
-def dashline():
-  dashline = print('------------------')
-  return dashline
-
 def process_text(text):
   # Remove <pad> and </s> tags
   cleaned_text = re.sub(r'<pad>|</s>', '', text).strip()
@@ -62,31 +58,30 @@ def process_text(text):
 #Summary Methods
 #############################
 
+@st.cache_resource
 def gen_lex_rank_summary (input_text, num_summaries,language):
   parser = PlaintextParser.from_string(input_text,Tokenizer(language))
-  print('Generating Summary with Lex Rank')
   summarizer = LexRankSummarizer()
-  #Summarize the document with 5 sentences
   summary_lexrank = summarizer(parser.document, num_summaries)
   return summary_lexrank
 
+@st.cache_resource
 def gen_luhn_summary (input_text, num_summaries,language):
   parser = PlaintextParser.from_string(input_text,Tokenizer(language))
-  print('Generating Summary with Luhn')
   summarizer_luhn = LuhnSummarizer()
   summary_luhn =summarizer_luhn(parser.document,num_summaries)
   return summary_luhn
 
+@st.cache_resource
 def gen_lsa_summary (input_text, num_summaries,language):
   parser = PlaintextParser.from_string(input_text,Tokenizer(language))
-  print('Generating Summary with LSA')
   summarizer_lsa = LsaSummarizer()
   summary_lsa = summary_lsa =summarizer_lsa(parser.document,num_summaries)
   return summary_lsa
 
+@st.cache_resource
 def gen_lsa_summary_stopwords (input_text, num_summaries,language):
   parser = PlaintextParser.from_string(input_text,Tokenizer(language))
-  print('Summaries generated with Stopwords')
   summarizer_lsa2 = LsaSummarizer()
   summarizer_lsa2 = LsaSummarizer(Stemmer(language))
   summarizer_lsa2.stop_words = get_stop_words(language)
@@ -230,7 +225,7 @@ elif input_type == 'pdf':
 else:
     chunks = ''
 
-# Process each chunk based on the selected option and the inputs collected above
+#  each chunk based on the selected option and the inputs collected above
 for chunk in chunks:  
     final_summary = summarize(chunk, num_sum, language)
     # Display the final summary
