@@ -17,8 +17,8 @@ st.set_page_config(page_title="Q&A", page_icon="❓")
 
 st.markdown("# Interactive Q&A")
 st.write(
-    """Have a question about the text but can't find the answer. Try this interactive Q&A feature that pulls responses
-    directly from the text so you can be sure that the answer is reliable."""
+    """Have a question about the text but can't find the answer? Try this interactive Q&A feature that pulls responses
+    directly from the text you inputted so you can be sure that the answer is accurate."""
 )
 
 ##########################################################
