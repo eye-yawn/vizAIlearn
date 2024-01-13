@@ -4,7 +4,7 @@ from PIL import Image
 st.set_page_config(page_title="VizAILearn", page_icon="🎓")
 
 st.title("Viz-AI-Learn: The Visual Learning Platform of the Future")
-st.write("Tired of sifting through endless pages of text? Worried about an upcoming test on several confusing concepts? \n\n This AI-powered tool is here to make your life easier. It can convert long-winded textbook pages into concise summaries while adding a variety of digestible visualizations to convey key ideas. \n\nOnce you're feeling comfortable, try the Q&A feature to instantly generate reliable answers to your practice questions and master knowledge. \nSay goodbye to stressful studying and hello to smarter, faster learning of the future with Viz-AI-learn")
+st.write("Tired of sifting through endless pages of text? Worried about an upcoming test on several confusing concepts? \n\n This AI-powered tool is here to make your life easier. It can convert long-winded textbook pages into concise summaries while adding a variety of digestible visualizations to convey key ideas. \n\nOnce you're feeling comfortable, try the Q&A feature to instantly generate reliable answers to your practice questions and master knowledge. \nSay goodbye to stressful studying and hello to smarter, faster learning of the future with Viz-AI-Learn")
 st.write('\nTo start using this app, click on one of the pages to the left. \nHappy Learning!\n')
 st.caption('Created by Aayaan Ahmed -- LinkedIn: https://www.linkedin.com/in/aayaan-ahmed/')
 
