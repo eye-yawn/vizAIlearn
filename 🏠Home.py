@@ -13,3 +13,11 @@ image = Image.open('stressed_student (1).jpg')
 col1,col2,col3,col4,col5 = st.columns(5)
 with col2:
     st.image(image, caption='The Guardian: "Many students are unable to concentrate long enough to finish their studies. Photograph: Alamy"', width =400)
+
+with st.sidebar.form(key ='Form1', clear_on_submit=True):
+    st.write("Feedback ")
+    stars = st.radio("Rate your experience on Viz-AI-Learn",[':star:',':star::star:',':star::star::star:',':star::star::star::star:',':star::star::star::star::star:'])
+    user_feedback = st.text_area("If you have any feedback or concerns please let me know here:")
+    submitbutton = st.form_submit_button(use_container_width=True)
+    if submitbutton:
+        st.write("Thank you for your feedback.")
