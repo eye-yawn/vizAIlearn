@@ -14,10 +14,41 @@ col1,col2,col3,col4,col5 = st.columns(5)
 with col2:
     st.image(image, caption='The Guardian: "Many students are unable to concentrate long enough to finish their studies. Photograph: Alamy"', width =400)
 
-with st.sidebar.form(key ='Form1', clear_on_submit=True):
-    st.write("Feedback ")
-    stars = st.radio("Rate your experience on Viz-AI-Learn",[':star:',':star::star:',':star::star::star:',':star::star::star::star:',':star::star::star::star::star:'])
+# with st.sidebar.form(key ='Form1', clear_on_submit=True):
+#     st.write("Feedback ")
+#     stars = st.radio("Rate your experience on Viz-AI-Learn",[':star:',':star::star:',':star::star::star:',':star::star::star::star:',':star::star::star::star::star:'])
+#     user_feedback = st.text_area("If you have any feedback or concerns please let me know here:")
+#     submitbutton = st.form_submit_button(use_container_width=True)
+#     if submitbutton:
+#         st.write("Thank you for your feedback.")
+
+import smtplib
+from email.mime.text import MIMEText
+
+with st.sidebar:
+    st.markdown("**Feedback 💬**")
+    email_sender = st.secrets["sendemail"]
+    email_receiver = st.secrets["receiveremail"]
+    
+    # inputs
+    stars = st.radio("Rate your experience on Viz-AI-Learn",[':star:',':star:'*2,':star:'*3,':star:'*4,':star:'*5])
+    numstars = str(stars.count(":star:"))
     user_feedback = st.text_area("If you have any feedback or concerns please let me know here:")
-    submitbutton = st.form_submit_button(use_container_width=True)
-    if submitbutton:
-        st.write("Thank you for your feedback.")
+    body = numstars + " stars:\n\n" + user_feedback
+
+    if st.button("Send Email"):
+        try:
+            msg = MIMEText(body)
+            msg['From'] = email_sender
+            msg['To'] = email_receiver
+
+            server = smtplib.SMTP('smtp.gmail.com', 587)
+            server.starttls()
+            server.login(email_sender, st.secrets["password"])
+            server.sendmail(email_sender, email_receiver, msg.as_string())
+            server.quit()
+
+            st.success('Thank you for your feedback! 🚀')
+        except Exception as e:
+            st.error(f"Failed to send email: {e}")
+
