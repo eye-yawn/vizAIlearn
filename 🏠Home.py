@@ -36,7 +36,7 @@ with st.sidebar:
     user_feedback = st.text_area("If you have any feedback or concerns please let me know here:")
     body = numstars + " stars:\n\n" + user_feedback
 
-    if st.button("Send Email"):
+    if st.button("Send"):
         try:
             msg = MIMEText(body)
             msg['From'] = email_sender
